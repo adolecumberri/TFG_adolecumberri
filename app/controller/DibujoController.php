@@ -1,8 +1,11 @@
 <?php
 
-class DibujoController{
-    
-    public function __construct() {
-        //a priori nada por aqui
-    }
+class DibujoController extends Controller {
+
+	public function __construct() {
+		//a priori nada por aqui
+	}
+	public function index() {
+		echo "controlador Dibujo construct";
+	}
 }

@@ -1,11 +1,11 @@
 <?php
 
-class BlogController extends Controller {
+class CategoriaController extends Controller {
 
 	public function __construct() {
 		//nada por ahora
 	}
 	public function index() {
-		echo "controlador Blog construct";
+		echo "controlador Categoria construct";
 	}
 }
