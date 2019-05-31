@@ -15,16 +15,26 @@ if (isset($_REQUEST['c'])) {
 	$pathModel = "app/models/$model.php";
 
 } else {
-	$controller = 'main';
+	$controller = 'HomeController';
+	$pathController = "app/controllers/HomeController.php";
 }
 
 //Si hay controlador, cargo el metodo
 if (isset($_REQUEST['c'])) {
 	$getMethod = $_REQUEST['m'];
+}else{
+
+	print_r("entro aqui <br/>");
+	include $pathController;
+	$objController = new  $controller();
+	$objController->index();
+	include 'app/views/home.tpl.php';
+	exit();
 }
 
+
 if (!file_exists($pathModel)) {
-	exit('No se ha podido cargar el Modelo. <br/>');
+	//Si no existe el Path Model, seguramente es por que estoy en HomeController
 } else {
 	include $pathModel;
 }
@@ -36,14 +46,14 @@ if (!file_exists($pathController)) {
 }
 
 //crear Obj controlador
-$obj = new $controller;
-if (!method_exists($obj, $getMethod)) {
+$objController = new $controller();
+if (!method_exists($objController, $getMethod)) {
 	exit("No existe el método $getMethod<br />");
 } else {
-	$result = $obj->$getMethod();
+	$result = $objController->$getMethod();
 }
 //CargarPlantilla  Principal
-if ($obj->getView()) {
+if ($objController->getView()) {
 	include 'app/views/html.tpl.php';
 }
 
