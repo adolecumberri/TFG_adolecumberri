@@ -6,6 +6,25 @@ class DibujoController extends Controller {
 		//a priori nada por aqui
 	}
 	public function index() {
-		echo "controlador Dibujo construct";
+		$this->setView('dibujo.tpl.php');
+	}
+	public static function loadHeader() {
+		$retorno = '
+		<!-- pagina 1-->
+			   	<li style="background-image: url(images/img_bg_1.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container">
+			   			<div class="row">
+				   			<div class="col-md-8 col-sm-12 col-md-offset-2 col-md-pull-2 slider-text">
+				   				<div class="slider-text-inner">
+				   					<h2>Lo que dibujamos,</h2>
+				   					<h1>Nuestro Arte</h1>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	';
+		return $retorno;
 	}
 }

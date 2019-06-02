@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 31-05-2019 a las 17:25:58
+-- Tiempo de generación: 03-06-2019 a las 00:18:16
 -- Versión del servidor: 5.7.23
 -- Versión de PHP: 7.2.10
 
@@ -41,6 +41,19 @@ INSERT INTO `blogs` (`id`, `date`, `titulo`, `texto`, `id_dibujo`, `id_categoria
 (15, '2019-05-28 00:00:00', 'presentacion', '\"qui dolorem ipsum, quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem\".\r\n\r\nEsto es reconocible, en parte, como el estándar del Lorem Ipsum de hoy y fue traducido a:', NULL, NULL, NULL),
 (26, '2019-05-28 00:00:00', 'jugar cartas', 'Para otros usos de este término, véase Carta (desambiguación).\r\n\r\nCarta y sobre\r\n\r\nCarta famosa que Albert Einstein escribe al presidente de Estados Unidos Franklin Roosevelt, sugiriendo el proyecto de una bomba atómica. Hacer clic aquí para acceder a la segunda carilla de la carta.\r\nUna carta es un medio de comunicación escrito por un emisor (remitente) y enviado a un receptor (destinatario).\r\n\r\nNormalmente, el nombre y la dirección del destinatario aparecen en el frente del sobre, el nombre y la dirección del remitente aparecen en el reverso del mismo (en el caso de sobres manuscritos) o en el anverso (en los sobres preimpresos).\r\n\r\nExisten cartas con remitente, en las que no está lista o anotada la dirección de quien envía la carta, bien por olvido o por omisión consciente del remitente.\r\n\r\nLa carta puede ser un texto diferente para cada ocasión, ya que el mensaje es siempre distinto. En ese sentido, sólo en parte puede considerarse texto plenamente expositivo.', NULL, NULL, NULL),
 (37, '2019-05-28 00:00:00', 'veracidad wikipedia', 'Todos los artículos de Wikipedia deben tener referencias suficientes (es decir, indicar la fuente de la información) para que el lector pueda comprobar la exactitud, precisión y neutralidad del artículo, y buscar más información sobre el tema. Todo el contenido de Wikipedia debe haber sido publicado en otro lugar (ya que Wikipedia no es una fuente primaria), y por eso siempre es posible para el autor del artículo incluir una referencia.', NULL, NULL, NULL);
+
+--
+-- Volcado de datos para la tabla `dibujos`
+--
+
+INSERT INTO `dibujos` (`id`, `date`, `titulo`, `id_texto`, `id_categoria`, `img`, `deleted`) VALUES
+(1, '2019-06-02 00:00:00', 'Aurea', NULL, NULL, 'blog_1', NULL),
+(3, '2019-06-02 00:00:00', 'Árbol', NULL, NULL, 'blog_3', NULL),
+(4, '2019-06-02 00:00:00', 'Algo dentro de tí', NULL, NULL, 'blog_4', NULL),
+(5, '2019-06-02 00:00:00', 'Lagarto', NULL, NULL, 'blog_5', NULL),
+(6, '2019-06-02 00:00:00', 'Luna', NULL, NULL, 'blog_6', NULL),
+(7, '2019-06-02 00:00:00', 'Maga Naga', NULL, NULL, 'blog_7', NULL),
+(2, '2019-06-02 00:00:00', 'Arpia y Dragón', NULL, NULL, 'blog_2', NULL);
 
 --
 -- Volcado de datos para la tabla `usuarios`
