@@ -1,51 +1,20 @@
 <?php
+include 'app/models/Modelo.php';
+class DibujoModel extends Modelo {
 
-class DibujoModel {
-    public $id;
-    public $date;
-    public $url;
-    public $titulo;
-    public $id_texto;
-    
-    function getId() {
-        return $this->id;
-    }
+	public $table;
 
-    function getDate() {
-        return $this->date;
-    }
+	public function __construct() {
+		/*	$modelo = new Modelo();
+		$this->database = $modelo->database;*/
+		parent::__construct();
+		$this->table = 'dibujos';
+	}
 
-    function getUrl() {
-        return $this->url;
-    }
+	public function getAll() {
+		$query = "SELECT * FROM $this->table ;";
+		$retorno = $this::rawQuery($query, $this->table);
+		return $retorno;
+	}
 
-    function getTitulo() {
-        return $this->titulo;
-    }
-
-    function getId_texto() {
-        return $this->id_texto;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setDate($date) {
-        $this->date = $date;
-    }
-
-    function setUrl($url) {
-        $this->url = $url;
-    }
-
-    function setTitulo($titulo) {
-        $this->titulo = $titulo;
-    }
-
-    function setId_texto($id_texto) {
-        $this->id_texto = $id_texto;
-    }
-
-
-} 
+}

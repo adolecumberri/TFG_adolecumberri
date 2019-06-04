@@ -1,12 +1,18 @@
 <?php
 
+include 'app/models/DibujoModel.php';
 class DibujoController extends Controller {
 
 	public function __construct() {
 		//a priori nada por aqui
 	}
-	public function index() {
-		$this->setView('dibujo.tpl.php');
+	public function grid() {
+		$objDibujo = new DibujoModel();
+		$retorno = $objDibujo->getAll();
+		$this->setView('dibujos.tpl.php');
+		/*var_dump($retorno);
+		die();*/
+		return $retorno;
 	}
 	public static function loadHeader() {
 		$retorno = '

@@ -1,0 +1,37 @@
+<div id="colorlib-work">
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center animate-box intro-heading fadeInUp animated">
+						<h2>Portafolios</h2>
+					</div>
+				</div>
+				<div class="row row-padded-bottom">
+				<?php foreach ($result as $dibujo): ?>
+				<?php if ($dibujo->deleted == '0'): ?>
+									<div class="col-md-6 animate-box text-center fadeInUp animated">
+										<a href="dibujo.tpl.php?c=Dibujo&m=grid&id=<?=$dibujo->id?>" class="work-img" style="background-image: url(res/images/<?=$dibujo->img?>);">
+											<div class="overlay"></div>
+											<div class="desc">
+												<span class="icon"><i class="icon-heart-outline"></i></span>
+												<p class="tag"><span><?=$dibujo->titulo?></span>, <span>Logo</span></p>
+												<h3><?=$dibujo->titulo?></h3>
+												<span class="read-more">Read more <i class="icon-arrow-right3"></i></span>
+											</div>
+										</a>
+									</div>
+
+					<?php endif;?>
+				<?php endforeach;?>
+
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<p class="prev-next">
+						<a href="#" class="previous text-left"><i class="icon-arrow-left4"></i> Previous</a>
+						<a href="#" class="next text-right">Next <i class="icon-arrow-right4"></i></a>
+					</p>
+				</div>
+			</div>
+</div>

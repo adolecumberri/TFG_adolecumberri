@@ -1,1 +1,0 @@
-<p> view De dibujos

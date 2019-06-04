@@ -4,6 +4,7 @@
  <?php
 //establece contenido enviando un http
 header('Content-type: text/html; charset=utf-8');
+require_once 'app/config/database.php';
 require_once 'autoload.php';
 //cargo Controller y Model y sus paths
 //Sino, en el principal.
@@ -29,7 +30,7 @@ if (isset($_REQUEST['c']) && isset($_RESQUEST['m'])) {
 	// y meto la view HTML.tpl.php para que se genere.
 	include $pathController;
 	$objController = new $controller();
-	$objController->index();
+	$result = $objController->grid();
 	require_once 'app/layout/header.php';
 	include "app/views/" . $objController->getView();
 	require_once 'app/layout/footer.php';
@@ -53,7 +54,7 @@ $objController = new $controller();
 
 require_once 'app/layout/header.php';
 if (!method_exists($objController, $getMethod)) {
-	exit("No existe el método $getMethod<br />");
+	$result = $objController->grid();
 } else {
 	$result = $objController->$getMethod();
 }

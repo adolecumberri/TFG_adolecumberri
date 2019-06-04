@@ -41,10 +41,10 @@
 		<div class="js-fullheight colorlib-table">
 			<div class="colorlib-table-cell js-fullheight">
 				<ul>
-					<li><a href="?c=Home&m=index">Home</a></li>
-					<li><a href="?c=Blog&m=index">Blog</a></li>
-					<li><a href="?c=Dibujo&m=index">Dibujo</a></li>
-					<li><a href="?c=Personal&m=index">Informacion Personal</a></li>
+					<li><a href="?c=Home&m=grid">Home</a></li>
+					<li><a href="?c=Blog&m=grid">Blog</a></li>
+					<li><a href="?c=Dibujo&m=grid">Dibujo</a></li>
+					<li><a href="?c=Personal&m=grid">Informacion Personal</a></li>
 					<!-- <li><a href="?c=Home&m=index">TFG</a></li> -->
 				</ul>
 			</div>
