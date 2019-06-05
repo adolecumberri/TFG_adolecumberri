@@ -6,6 +6,7 @@ class DibujoController extends Controller {
 	public function __construct() {
 		//a priori nada por aqui
 	}
+
 	public function grid() {
 		$objDibujo = new DibujoModel();
 		$retorno = $objDibujo->getAll();
@@ -14,6 +15,7 @@ class DibujoController extends Controller {
 		die();*/
 		return $retorno;
 	}
+
 	public static function loadHeader() {
 		$retorno = '
 		<!-- pagina 1-->

@@ -1,0 +1,18 @@
+
+/*
+La base
+ */
+
+<pre> <?php var_dump($result); die(); ?>
+
+
+
+/*
+Codigo para meter imagenes si el BLOG la tiene enlazada.
+ */
+
+<?php 
+	if (!is_null($blog->dibujo)) {
+		echo 'style="background-image: url(res/images/' . $blog->dibujo . ')';
+	}
+?>

@@ -1,13 +1,20 @@
 <?php
-
+include 'app/models/BlogModel.php';
 class BlogController extends Controller {
 
 	public function __construct() {
 		//nada por ahora
 	}
-	public function index() {
+
+	public function grid() {
+		$objBlog = new BlogModel();
+		$retorno = $objBlog->getAll();
 		$this->setView('blog.tpl.php');
+		/*var_dump($retorno);
+		die();*/
+		return $retorno;
 	}
+
 	public static function loadHeader() {
 		$retorno = '
 		<!-- pagina 1-->

@@ -5,12 +5,9 @@
   font-weight: normal;
   font-style: normal; }
 
-/* =======================================================
-*
-* 	Template Style 
-*	Edit this section
-*
-* ======================================================= */
+.container {
+    width: 80%;
+}
 body {
   font-family: "Inconsolata", monospace;
   line-height: 1.8;
