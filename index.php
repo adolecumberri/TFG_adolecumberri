@@ -20,7 +20,7 @@ if (isset($_REQUEST['c'])) {
 }
 
 //Si hay controlador, cargo el metodo
-if (isset($_REQUEST['c']) && isset($_RESQUEST['m'])) {
+if (isset($_REQUEST['c']) && isset($_REQUEST['m'])) {
 
 	$getMethod = $_REQUEST['m'];
 
@@ -29,7 +29,6 @@ if (isset($_REQUEST['c']) && isset($_RESQUEST['m'])) {
 	// cargo la view HOME.TPL.PHP
 	// y meto la view HTML.tpl.php para que se genere.
 	include $pathController;
-	$objController = new $controller();
 	$result = $objController->grid();
 	require_once 'app/layout/header.php';
 	include "app/views/" . $objController->getView();
@@ -43,15 +42,8 @@ if (!file_exists($pathModel)) {
 	include $pathModel;
 }
 
-if (!file_exists($pathController)) {
-	exit('No se ha podido cargar el controlador.<br/>');
-} else {
-	include $pathController;
-}
-
 //crear Obj controlador
 $objController = new $controller();
-
 require_once 'app/layout/header.php';
 if (!method_exists($objController, $getMethod)) {
 	$result = $objController->grid();
@@ -61,7 +53,10 @@ if (!method_exists($objController, $getMethod)) {
 
 //CargarPlantilla  Principal
 if ($objController->getView()) {
-	include 'app/views/' . $objController->getView();
+	include_once 'app/views/' . $objController->getView();
+}
+if ($objController->getJs()) {
+	include_once 'res/js/' . $objController->getView();
 }
 require_once 'app/layout/footer.php';
 ?>

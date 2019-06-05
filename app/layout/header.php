@@ -30,6 +30,7 @@
 			<link rel="stylesheet" href="res/css/owl.theme.default.min.css">
 
 			<link rel="stylesheet" href="res/css/style.css">
+			<link rel="stylesheet" href="res/css/custom.css">
 			<script src="res/js/modernizr-2.6.2.min.js"></script>
 
 

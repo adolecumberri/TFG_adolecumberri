@@ -1,6 +1,6 @@
 <?php
 
-include 'app/models/Modelo.php';
+include_once 'app/models/Modelo.php';
 class BlogModel extends Modelo {
 
 	public $table;

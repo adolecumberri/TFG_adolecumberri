@@ -1,9 +1,9 @@
 <?php
-include 'app/models/BlogModel.php';
+include_once 'app/models/BlogModel.php';
 class BlogController extends Controller {
 
 	public function __construct() {
-		//nada por ahora
+
 	}
 
 	public function grid() {

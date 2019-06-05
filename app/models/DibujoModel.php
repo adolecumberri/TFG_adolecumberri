@@ -1,5 +1,5 @@
 <?php
-include 'app/models/Modelo.php';
+include_once 'app/models/Modelo.php';
 class DibujoModel extends Modelo {
 
 	public $table;

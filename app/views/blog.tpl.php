@@ -6,15 +6,18 @@
 						<h2>Blogs</h2>
 					</div>
 				</div>
-				<!-- Aqui va la creación  programatica de -->
-				<div class ="row">
+
+			<!-- Aqui va la creación  programatica de -->
+
+<div class ="row">
         <div class="blog-flex">
             <?php foreach ($result as $blog): ?>
                 <?php if ($blog->deleted == '0'): ?>
-                    <div class="col-md-6 zoom ">
+
+                    <div class="col-md-5 zoom">
                         <a href="#" class="f-blog animate-box fadeInUp animated">
-                            <p class="meta"><span style="border-right: 2px solid #eee; padding-right: 1em;"> <?=$blog->categoria?> </span><span style="padding-left: 1em;"><?=$blog->date?></span></p>
-                            <h3 class="text-white"><?=$blog->titulo?></h3>
+                            <p class="meta"><span><?=$blog->categoria?> </span> | <span><?=$blog->date?></span></p>
+                            <h3 class="tituloBlog"><?=$blog->titulo?></h3>
                             <p class="read-more">Read more <i class="icon-arrow-right3"></i></p>
                         </a>
 
@@ -24,8 +27,7 @@
             <?php endforeach;?>
         </div>
 </div>
-
-
+			<!--  aqui acaba la creacion programatica -->
 
 			</div>
 			<div class="container">

@@ -9,8 +9,8 @@
 				<div class="row row-padded-bottom">
 				<?php foreach ($result as $dibujo): ?>
 				<?php if ($dibujo->deleted == '0'): ?>
-									<div class="col-md-6 animate-box text-center fadeInUp animated">
-										<a href="dibujo.tpl.php?c=Dibujo&m=grid&id=<?=$dibujo->id?>" class="work-img" style="background-image: url(res/images/<?=$dibujo->img?>);">
+									<div class="col-md-4 animate-box text-center fadeInUp animated">
+										<a href="?c=Dibujo&m=show&id=<?=$dibujo->id?>" class="work-img" style="background-image: url(res/images/<?=$dibujo->img?>);">
 											<div class="overlay"></div>
 											<div class="desc">
 												<span class="icon"><i class="icon-heart-outline"></i></span>

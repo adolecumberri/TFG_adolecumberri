@@ -6,7 +6,7 @@
 						 <div class="col-md-4 col-pb-sm">
 							<h2>Copyright</h2>
 							<span class="block"><p>
-									Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+									Copyright &copy;<?=date("Y")?>
 									Derechos Reservados
 							</span>
 						</div>

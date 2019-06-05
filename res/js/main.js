@@ -142,8 +142,6 @@
 		});	
 	};
 
-	
-
 
 	// Document on load.
 	$(function(){
@@ -155,6 +153,8 @@
 		contentWayPoint();
 		owlCrouselFeatureSlide();
 	});
+	
+	
 
 
 }());

@@ -1,6 +1,6 @@
 <?php
 
-include 'app/models/DibujoModel.php';
+include_once 'app/models/DibujoModel.php';
 class DibujoController extends Controller {
 
 	public function __construct() {
@@ -11,6 +11,17 @@ class DibujoController extends Controller {
 		$objDibujo = new DibujoModel();
 		$retorno = $objDibujo->getAll();
 		$this->setView('dibujos.tpl.php');
+		/*var_dump($retorno);
+		die();*/
+		return $retorno;
+	}
+
+	public function show() {
+		var_dump($_POST);
+		die();
+		$objDibujo = new DibujoModel();
+		$retorno = $objDibujo->getOne();
+		$this->setView('dibujo.tpl.php');
 		/*var_dump($retorno);
 		die();*/
 		return $retorno;
