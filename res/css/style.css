@@ -5,6 +5,19 @@
   font-weight: normal;
   font-style: normal; }
 
+.myf-blog{
+
+}
+
+
+
+
+
+
+
+
+
+
 .container {
     width: 80%;
 }
@@ -530,10 +543,16 @@ header {
   .blog-flex .blog-img {
     display: block; }
   .blog-flex .f-blog {
+    background-color: #fdfde8;
     text-decoration: none;
     padding: 0;
     display: block;
     border: 1px dashed #000;
+    /* Intento de otro borde, cargado como imagen.*/
+    border-image-source:url("../../res/achievements/borde.png"); 
+    border-image-width: 1;
+    border-image-slice: 2; 
+    border-image-repeat: round;
     padding: 25px; }
     .blog-flex .f-blog:first-child {
       margin-bottom: 3em; }
