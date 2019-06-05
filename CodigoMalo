@@ -16,3 +16,45 @@ Codigo para meter imagenes si el BLOG la tiene enlazada.
 		echo 'style="background-image: url(res/images/' . $blog->dibujo . ')';
 	}
 ?>
+
+/*
+borde rayado
+*/
+
+.blog-flex .f-blog {
+    background-color: #fdfde8;
+    text-decoration: none;
+    padding: 0;
+    display: block;
+    border: 1px dashed #000;
+    /* Intento de otro borde, cargado como imagen.*/
+    border-image-source:url("../../res/achievements/borde.png"); 
+    border-image-width: 1;
+    border-image-slice: 2; 
+    border-image-repeat: round;
+    padding: 25px; 
+}
+
+
+/*
+    Creación programatica de blogs
+*/
+
+<div class ="row">
+        <div class="blog-flex">
+            <?php foreach ($result as $blog): ?>
+                <?php if ($blog->deleted == '0'): ?>
+
+                    <div class="col-md-4">
+                        <a href="#" class="f-blog animate-box fadeInUp animated">
+                            <p class="meta"><span><?=$blog->categoria?> </span> | <span><?=$blog->date?></span></p>
+                            <h3><?=$blog->titulo?></h3>
+                            <p class="read-more">Read more <i class="icon-arrow-right3"></i></p>
+                        </a>
+
+                    </div>
+
+                <?php endif;?>
+            <?php endforeach;?>
+        </div>
+</div>

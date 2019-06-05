@@ -5,18 +5,11 @@
   font-weight: normal;
   font-style: normal; }
 
-.myf-blog{
+
+.text-white{
+  color: #f1f1f1 !important;
 
 }
-
-
-
-
-
-
-
-
-
 
 .container {
     width: 80%;
@@ -27,7 +20,7 @@ body {
   font-size: 20px;
   background: #f0f0f0;
   font-weight: 300;
-  letter-spacing: 1px;
+  letter-spacing: .0625em
   color: #333333; }
   body.menu-show {
     overflow: hidden;
@@ -353,16 +346,17 @@ header {
     color: #000;
     position: relative;
     text-transform: uppercase; }
-    .intro-heading h2:after {
+  .intro-heading h2:after {
       position: absolute;
-      bottom: -.5em;
-      left: 0;
-      right: 0;
-      width: 80px;
-      height: 2px;
-      content: '';
-      background: #0e27fb;
-      margin: 0 auto; }
+    bottom: -.5em;
+    left: 0;
+    right: 0;
+       width: 100px;
+    height: 3px;
+    content: '';
+    background: #4a4a4a;
+    margin: 0 auto;
+  }
     @media screen and (max-width: 768px) {
       .intro-heading h2 {
         font-size: 30px; } }
@@ -543,17 +537,13 @@ header {
   .blog-flex .blog-img {
     display: block; }
   .blog-flex .f-blog {
-    background-color: #fdfde8;
-    text-decoration: none;
-    padding: 0;
-    display: block;
-    border: 1px dashed #000;
-    /* Intento de otro borde, cargado como imagen.*/
-    border-image-source:url("../../res/achievements/borde.png"); 
-    border-image-width: 1;
-    border-image-slice: 2; 
-    border-image-repeat: round;
-    padding: 25px; }
+      background-color: #161616!important;
+      text-decoration: none;
+      display: block;
+      border-radius: 3%;
+      padding: 25px;
+
+    }
     .blog-flex .f-blog:first-child {
       margin-bottom: 3em; }
     @media screen and (max-width: 768px) {
@@ -566,7 +556,7 @@ header {
       color: #4d4d4d;
       font-weight: 400; }
       .blog-flex .f-blog .meta span {
-        color: #4d4d4d;
+        color: #eAeAeA;
         font-size: 16px; }
     .blog-flex .f-blog h3 {
       font-weight: 700;
@@ -578,20 +568,14 @@ header {
       margin-bottom: 10px;
       display: inline-block;
       position: relative;
-      color: #4d4d4d; }
-      .blog-flex .f-blog .read-more:after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        content: '';
-        width: 100%;
-        height: 3px;
-        background: #cccccc; }
+      border-bottom: 3px solid #eAeAeA;
+      color: #F1F1F1; }
+      
+        
     .blog-flex .f-blog:hover h3, .blog-flex .f-blog:focus h3 {
-      color: #0e27fb; }
+      color: #000; }
     .blog-flex .f-blog:hover .read-more, .blog-flex .f-blog:focus .read-more {
-      color: #0e27fb; }
+      color: #000; }
       .blog-flex .f-blog:hover .read-more:after, .blog-flex .f-blog:focus .read-more:after {
         background: #4054fc; }
 
@@ -1207,5 +1191,13 @@ input[type="text"] {
     font-weight: 300;
     line-height: 1.5em; }
 
-.js .animate-box {
-  opacity: 0; }
+ .zoom *{
+ transition: transform 2s; /* Animation */
+  
+}
+ .zoom :hover{
+    -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5);
+  
+}
