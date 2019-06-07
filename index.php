@@ -29,6 +29,7 @@ if (isset($_REQUEST['c']) && isset($_REQUEST['m'])) {
 	// cargo la view HOME.TPL.PHP
 	// y meto la view HTML.tpl.php para que se genere.
 	include $pathController;
+	$objController = new $controller();
 	$result = $objController->grid();
 	require_once 'app/layout/header.php';
 	include "app/views/" . $objController->getView();

@@ -5,6 +5,9 @@
   font-weight: normal;
   font-style: normal; }
 
+
+
+
 .zoom{
   margin: auto;
   transition: transform .8s; /* Animation */
@@ -185,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
         color: white;
         font-size: 48px;
-        padding: 40px 0;
+        padding: 2% 0;
         text-transform: uppercase; }
         @media screen and (max-width: 768px) {
           #colorlib-main-nav ul li a {
@@ -1205,3 +1208,24 @@ input[type="text"] {
     font-weight: 300;
     line-height: 1.5em; }
 
+
+.zoom:hover .arrow1{
+  transition: transform linear 1.1s;
+}
+.zoom:hover .arrow1 {  
+  display:inline-block;
+  animation: slide1 1s ease-in-out infinite;
+  margin-left: 9px;
+  transform: translateX(20px);
+}
+
+@keyframes slide1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}

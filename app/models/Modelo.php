@@ -19,4 +19,16 @@ class Modelo {
 		return $retorno ? $retorno : false;
 	}
 
+	public function parseTime($values){
+
+		foreach ($values as $row) {
+
+			$parse = DateTime::createFromFormat('Y-m-d', $row->date);
+			$parse->Format('d,F,Y');
+			$row->date = $parse->Format('d F Y');
+
+		}
+		return $values;
+	}
+
 }

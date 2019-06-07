@@ -9,6 +9,14 @@ class BlogController extends Controller {
 	public function grid() {
 		$objBlog = new BlogModel();
 		$retorno = $objBlog->getAll();
+		$this->setView('blogs.tpl.php');
+		/*var_dump($retorno);
+		die();*/
+		return $retorno;
+	}
+	public function show() {
+		$objBlog = new BlogModel();
+		$retorno = $objBlog->getOne($_REQUEST['id']);
 		$this->setView('blog.tpl.php');
 		/*var_dump($retorno);
 		die();*/
@@ -18,7 +26,7 @@ class BlogController extends Controller {
 	public static function loadHeader() {
 		$retorno = '
 		<!-- pagina 1-->
-			   	<li style="background-image: url(images/img_bg_1.jpg);">
+			   	<li style="background-image: url(res/images/img_bg_2.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container">
 			   			<div class="row">

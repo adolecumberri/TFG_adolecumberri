@@ -11,16 +11,13 @@ class DibujoController extends Controller {
 		$objDibujo = new DibujoModel();
 		$retorno = $objDibujo->getAll();
 		$this->setView('dibujos.tpl.php');
-		/*var_dump($retorno);
-		die();*/
 		return $retorno;
 	}
 
 	public function show() {
-		var_dump($_POST);
-		die();
+
 		$objDibujo = new DibujoModel();
-		$retorno = $objDibujo->getOne();
+		$retorno = $objDibujo->getOne($_REQUEST['id']);
 		$this->setView('dibujo.tpl.php');
 		/*var_dump($retorno);
 		die();*/
@@ -44,6 +41,12 @@ class DibujoController extends Controller {
 			   		</div>
 			   	</li>
 			   	';
+		return $retorno;
+	}
+	public static function cargarRelacionados($categoria){
+		$retorno= '';
+
+
 		return $retorno;
 	}
 }
