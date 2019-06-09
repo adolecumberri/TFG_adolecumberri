@@ -4,12 +4,21 @@ include_once 'app/models/DibujoModel.php';
 class DibujoController extends Controller {
 
 	public function __construct() {
-		//a priori nada por aqui
+		$objDibujo = new DibujoModel();
+		$numCol = $objDibujo->getColNum();
+		$numPag = intval((($numCol + 5) / 6) - 1); //pageCount = (records + recordsPerPage - 1) / recordsPerPage;
+		setcookie('maxPagDibujos', $numPag);
+
 	}
 
 	public function grid() {
 		$objDibujo = new DibujoModel();
-		$retorno = $objDibujo->getAll();
+		if (isset($_REQUEST['page'])) {
+			$retorno = $objDibujo->getAll($_REQUEST['page']);
+		} else {
+			$retorno = $objDibujo->getAll('1');
+		}
+
 		$this->setView('dibujos.tpl.php');
 		return $retorno;
 	}
@@ -43,9 +52,8 @@ class DibujoController extends Controller {
 			   	';
 		return $retorno;
 	}
-	public static function cargarRelacionados($categoria){
-		$retorno= '';
-
+	public static function cargarRelacionados($categoria) {
+		$retorno = '';
 
 		return $retorno;
 	}

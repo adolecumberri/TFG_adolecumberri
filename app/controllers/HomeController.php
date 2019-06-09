@@ -1,13 +1,26 @@
 <?php
-
+include_once 'app/models/HomeModel.php';
 class HomeController extends Controller {
 
 	public function __construct() {
+		$objHome = new HomeModel();
+		$numCol = $objHome->getColNum();
+		$numPag = intval((($numCol + 5) / 6) - 1); //pageCount = (records + recordsPerPage - 1) / recordsPerPage;
+		setcookie('maxPagHome', $numPag);
 
 	}
 
 	public function grid() {
+		$objBlog = new HomeModel();
+		if (isset($_REQUEST['page'])) {
+			$retorno = $objBlog->getPage($_REQUEST['page']);
+		} else {
+			$retorno = $objBlog->getPage('1');
+		}
+
 		$this->setView('home.tpl.php');
+
+		return $retorno;
 
 	}
 	public static function loadHeader() {

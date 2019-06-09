@@ -14,7 +14,7 @@
 											<div class="overlay"></div>
 											<div class="desc">
 												<span class="icon"><i class="icon-heart-outline"></i></span>
-												<p class="tag"><span><?=$dibujo->titulo?></span>, <span>Logo</span></p>
+												<p class="tag"><span><?=$dibujo->titulo?></span>. <span><?=$dibujo->categoria?></span></p>
 												<h3><?=$dibujo->titulo?></h3>
 												<span class="read-more">Read more <i class="icon-arrow-right3"></i></span>
 											</div>
@@ -29,8 +29,15 @@
 			<div class="container">
 				<div class="row">
 					<p class="prev-next">
-						<a href="#" class="previous text-left"><i class="icon-arrow-left4"></i> Previous</a>
-						<a href="#" class="next text-right">Next <i class="icon-arrow-right4"></i></a>
+						<?php if (!isset($_REQUEST['page']) || $_REQUEST['page'] == '0') { /*nada*/} else {?>
+							<a href="?c=Dibujo&m=grid&page=<?=intval($_REQUEST['page']) - 1;?>" class="previous text-left"><i class="icon-arrow-left4"></i> Previous</a>
+						<?php }
+if (isset($_REQUEST['page']) && $_REQUEST['page'] == $_COOKIE['maxPagDibujos']) {
+/*nada*/
+} else {?>
+
+						<a href="?c=Dibujo&m=grid&page=<?=intval($_REQUEST['page']) + 1;?>" class="next text-right">Next <i class="icon-arrow-right4"></i></a>
+<?php }?>
 					</p>
 				</div>
 			</div>

@@ -6,6 +6,24 @@
   font-style: normal; }
 
 
+.cabeceraBlog {
+    border-bottom: 3px solid #bbb;
+    margin-bottom: 3em;
+}
+
+p.bodyBlog {
+    float: left;
+    margin-bottom: 2em;
+}
+
+.pBlog, span {
+  /* margin-bottom: 1.5em; */
+  font-weight: 400;
+  font-family: "Inconsolata", monospace;
+  margin-top: 2%;
+  padding-bottom: 2%;
+  }
+
 
 
 .zoom{
@@ -375,6 +393,18 @@ header {
     @media screen and (max-width: 768px) {
       .intro-heading h2 {
         font-size: 30px; } }
+  .cabeceraBlog h2{
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 1.5em;
+      color: #000;
+      position: relative;
+      text-transform: uppercase;
+  }
+    .cabeceraBlog h2:after{
+        content: none;
+    }
 
 .heading {
   font-size: 60px;
@@ -1229,3 +1259,4 @@ input[type="text"] {
     transform: translate(10px, 0);
   }
 }
+

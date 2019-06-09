@@ -16,7 +16,8 @@ if (isset($_REQUEST['c'])) {
 
 } else {
 	$controller = 'HomeController';
-	$pathController = "app/controllers/HomeController.php";
+	$model = 'HomeModel';
+	$pathController = "app/controllers/$controller.php";
 }
 
 //Si hay controlador, cargo el metodo

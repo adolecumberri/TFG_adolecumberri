@@ -3,12 +3,20 @@ include_once 'app/models/BlogModel.php';
 class BlogController extends Controller {
 
 	public function __construct() {
-
+		$objBlog = new BlogModel();
+		$numCol = $objBlog->getColNum();
+		$numPag = intval((($numCol + 5) / 6) - 1); //pageCount = (records + recordsPerPage - 1) / recordsPerPage;
+		setcookie('maxPagBlog', $numPag);
 	}
 
 	public function grid() {
 		$objBlog = new BlogModel();
-		$retorno = $objBlog->getAll();
+
+		if (isset($_REQUEST['page'])) {
+			$retorno = $objBlog->getAll($_REQUEST['page']);
+		} else {
+			$retorno = $objBlog->getAll('1');
+		}
 		$this->setView('blogs.tpl.php');
 		/*var_dump($retorno);
 		die();*/
@@ -18,8 +26,6 @@ class BlogController extends Controller {
 		$objBlog = new BlogModel();
 		$retorno = $objBlog->getOne($_REQUEST['id']);
 		$this->setView('blog.tpl.php');
-		/*var_dump($retorno);
-		die();*/
 		return $retorno;
 	}
 

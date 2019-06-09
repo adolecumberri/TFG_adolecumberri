@@ -33,8 +33,16 @@
 			<div class="container">
 				<div class="row">
 					<p class="prev-next">
-						<a href="#" class="previous text-left"><i class="icon-arrow-left4"></i> Previous</a>
-						<a href="#" class="next text-right">Next <i class="icon-arrow-right4"></i></a>
+						<?php if (!isset($_REQUEST['page']) || $_REQUEST['page'] == '0') { /*nada*/} else {?>
+							<a href="?c=Blog&m=grid&page=<?=intval($_REQUEST['page']) - 1;?>" class="previous text-left"><i class="icon-arrow-left4"></i> Previous</a>
+						<?php }
+if (isset($_REQUEST['page']) && ($_REQUEST['page'] == $_COOKIE['maxPagBlog'])) {
+/*nada*/
+} else {
+	?>
+
+						<a href="?c=Blog&m=grid&page=<?=intval($_REQUEST['page']) + 1;?>" class="next text-right">Next <i class="icon-arrow-right4"></i></a>
+<?php }?>
 					</p>
 				</div>
 			</div>
