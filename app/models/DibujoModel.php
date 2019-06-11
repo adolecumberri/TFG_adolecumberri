@@ -19,8 +19,12 @@ class DibujoModel extends Modelo {
 	}
 
 	public function getAll($page) {
-		$query = 'SELECT dibujos.*, categorias.nombre as categoria FROM dibujos left join categorias
-		on dibujos.id_categoria = categorias.id limit ' . ($page * 6) . ', 6;';
+
+		if ($page == '') {
+			$page = 0;
+		}
+
+		$query = 'SELECT dibujos.*, categorias.nombre as categoria FROM dibujos left join categorias on dibujos.id_categoria = categorias.id limit ' . (intval($page * 6)) . ', 6;';
 
 		$retorno = $this::rawQuery($query, $this->table);
 

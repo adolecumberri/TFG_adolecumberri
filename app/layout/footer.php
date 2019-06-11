@@ -36,22 +36,22 @@
 	</div>
 
 	<!-- jQuery -->
-	<script src="res/js/jquery.min.js"></script>
+	<script src="<?=base_url?>res/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="res/js/jquery.easing.1.3.js"></script>
+	<script src="<?=base_url?>res/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="res/js/bootstrap.min.js"></script>
+	<script src="<?=base_url?>res/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="res/js/jquery.waypoints.min.js"></script>
+	<script src="<?=base_url?>res/js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
-	<script src="res/js/jquery.flexslider-min.js"></script>
+	<script src="<?=base_url?>res/js/jquery.flexslider-min.js"></script>
 	<!-- Counters -->
-	<script src="res/js/jquery.countTo.js"></script>
+	<script src="<?=base_url?>res/js/jquery.countTo.js"></script>
 	<!-- Owl Carousel -->
-	<script src="res/js/owl.carousel.min.js"></script>
+	<script src="<?=base_url?>res/js/owl.carousel.min.js"></script>
 
 	<!-- Main JS (Do not remove) -->
-	<script src="res/js/main.js"></script>
+	<script src="<?=base_url?>res/js/main.js"></script>
 
 	</body>
 </html>

@@ -16,21 +16,21 @@
 			<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
 
 			<!-- Animate.css -->
-			<link rel="stylesheet" href="res/css/animate.css">
+			<link rel="stylesheet" href="<?=base_url?>/res/css/animate.css">
 			<!-- Icomoon Icon Fonts-->
-			<link rel="stylesheet" href="res/css/icomoon.css">
+			<link rel="stylesheet" href="<?=base_url?>res/css/icomoon.css">
 			<!-- Bootstrap  -->
-			<link rel="stylesheet" href="res/css/bootstrap.css">
+			<link rel="stylesheet" href="<?=base_url?>res/css/bootstrap.css">
 			<!-- Flexslider  -->
-			<link rel="stylesheet" href="res/css/flexslider.css">
+			<link rel="stylesheet" href="<?=base_url?>res/css/flexslider.css">
 			<!-- Flexslider  -->
-			<link rel="stylesheet" href="res/css/flexslider.css">
+			<link rel="stylesheet" href="<?=base_url?>res/css/flexslider.css">
 			<!-- Owl Carousel -->
-			<link rel="stylesheet" href="res/css/owl.carousel.min.css">
-			<link rel="stylesheet" href="res/css/owl.theme.default.min.css">
+			<link rel="stylesheet" href="<?=base_url?>res/css/owl.carousel.min.css">
+			<link rel="stylesheet" href="<?=base_url?>res/css/owl.theme.default.min.css">
 
-			<link rel="stylesheet" href="res/css/style.css">
-			<link rel="stylesheet" href="res/css/custom.css">
+			<link rel="stylesheet" href="<?=base_url?>res/css/style.css">
+			<link rel="stylesheet" href="<?=base_url?>res/css/custom.css">
 			<script src="res/js/modernizr-2.6.2.min.js"></script>
 
 
@@ -42,10 +42,10 @@
 		<div class="js-fullheight colorlib-table">
 			<div class="colorlib-table-cell js-fullheight">
 				<ul>
-					<li><a href="?c=Home&m=grid&page=0">Home</a></li>
-					<li><a href="?c=Blog&m=grid&page=0">Blog</a></li>
-					<li><a href="?c=Dibujo&m=grid&page=0">Dibujo</a></li>
-					<li><a href="?c=Personal&m=grid">Informacion Personal</a></li>
+					<li><a href="<?=base_url?>Home/grid/0">Home</a></li>
+					<li><a href="<?=base_url?>Blog/grid/0">Blog</a></li>
+					<li><a href="<?=base_url?>Dibujo/grid/0">Dibujo</a></li>
+					<li><a href="<?=base_url?>Personal/grid">Informacion Personal</a></li>
 					<!-- <li><a href="?c=Home&m=index">TFG</a></li> -->
 				</ul>
 			</div>

@@ -19,7 +19,7 @@ class Modelo {
 		return $retorno ? $retorno : false;
 	}
 
-	public function parseTime($values){
+	public function parseTime($values) {
 
 		foreach ($values as $row) {
 
