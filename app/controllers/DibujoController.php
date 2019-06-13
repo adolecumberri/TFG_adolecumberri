@@ -1,5 +1,4 @@
 <?php
-
 include_once 'app/models/DibujoModel.php';
 class DibujoController extends Controller {
 
@@ -24,9 +23,9 @@ class DibujoController extends Controller {
 	}
 
 	public function show() {
-
+		$id = $_REQUEST['page']; // el 3º valor se llama page. pero en realidad es la ID.
 		$objDibujo = new DibujoModel();
-		$retorno = $objDibujo->getOne($_REQUEST['id']);
+		$retorno = $objDibujo->getOne($id);
 		$this->setView('dibujo.tpl.php');
 		/*var_dump($retorno);
 		die();*/
@@ -55,6 +54,12 @@ class DibujoController extends Controller {
 	public static function cargarRelacionados($categoria) {
 		$retorno = '';
 
+		return $retorno;
+	}
+	public function getAll() {
+		$modelCat = new DibujoModel();
+		$query = " SELECT `id`, `titulo` FROM `dibujos`;";
+		$retorno = $modelCat->rawQuery($query);
 		return $retorno;
 	}
 }

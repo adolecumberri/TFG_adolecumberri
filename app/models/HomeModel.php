@@ -12,10 +12,10 @@ class HomeModel extends Modelo {
 
 	public function getColNum() {
 		$query = 'select count(id) as id from dibujos ;';
-		$val1 = $this::rawQuery($query, $this->table);
+		$val1 = $this::rawQuery($query);
 
 		$query = 'select count(id) as id from blogs ;';
-		$val2 = $this::rawQuery($query, $this->table);
+		$val2 = $this::rawQuery($query);
 		$retorno = (intval($val1[0]->id) + intval($val2[0]->id));
 		return $retorno;
 	}
@@ -47,7 +47,7 @@ class HomeModel extends Modelo {
 	limit ' . ($page * 6) . ', 6;
 			';
 
-		$retorno = $this::rawQuery($query, $this->table);
+		$retorno = $this::rawQuery($query);
 		$retorno = $this::parseTime($retorno);
 		return $retorno;
 
@@ -60,7 +60,7 @@ class HomeModel extends Modelo {
 				on blogs.id_categoria = categorias.id
 				WHERE blogs.id like $id ;";
 
-		$retorno = $this::rawQuery($query, $this->table);
+		$retorno = $this::rawQuery($query);
 
 		// parse DATE:
 		$retorno = $this::parseTime($retorno);

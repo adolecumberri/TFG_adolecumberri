@@ -13,16 +13,20 @@ class DibujoModel extends Modelo {
 
 	public function getColNum() {
 		$query = 'select count(id) as id from dibujos ;';
-		$val1 = $this::rawQuery($query, $this->table);
+		$val1 = $this::rawQuery($query);
 		$retorno = intval($val1[0]->id);
 		return $retorno;
 	}
 
 	public function getAll($page) {
-		$query = 'SELECT dibujos.*, categorias.nombre as categoria FROM dibujos left join categorias
-		on dibujos.id_categoria = categorias.id limit ' . ($page * 6) . ', 6;';
 
-		$retorno = $this::rawQuery($query, $this->table);
+		if ($page == '') {
+			$page = 0;
+		}
+
+		$query = 'SELECT dibujos.*, categorias.nombre as categoria FROM dibujos left join categorias on dibujos.id_categoria = categorias.id limit ' . (intval($page * 6)) . ', 6;';
+
+		$retorno = $this::rawQuery($query);
 
 		$retorno = $this::parseTime($retorno);
 		return $retorno;
@@ -36,7 +40,7 @@ class DibujoModel extends Modelo {
 				on dibujos.id_texto = blogs.id
 				WHERE dibujos.id like $id ;";
 
-		$retorno = $this::rawQuery($query, $this->table);
+		$retorno = $this::rawQuery($query);
 		$retorno = $this::parseTime($retorno);
 		return $retorno[0];
 	}

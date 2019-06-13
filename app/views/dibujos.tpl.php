@@ -10,7 +10,7 @@
 				<?php foreach ($result as $dibujo): ?>
 				<?php if ($dibujo->deleted == '0'): ?>
 									<div class="col-md-4 animate-box text-center fadeInUp animated">
-										<a href="?c=Dibujo&m=show&id=<?=$dibujo->id?>" class="work-img" style="background-image: url(res/images/<?=$dibujo->img?>);">
+										<a href="<?=base_url?>Dibujo/show/<?=$dibujo->id?>" class="work-img" style="background-image: url(<?=base_url?>res/images/<?=$dibujo->img?>);">
 											<div class="overlay"></div>
 											<div class="desc">
 												<span class="icon"><i class="icon-heart-outline"></i></span>
@@ -30,13 +30,13 @@
 				<div class="row">
 					<p class="prev-next">
 						<?php if (!isset($_REQUEST['page']) || $_REQUEST['page'] == '0') { /*nada*/} else {?>
-							<a href="?c=Dibujo&m=grid&page=<?=intval($_REQUEST['page']) - 1;?>" class="previous text-left"><i class="icon-arrow-left4"></i> Previous</a>
+							<a href="<?=intval($_REQUEST['page']) - 1;?>" class="previous text-left"><i class="icon-arrow-left4"></i> Previous</a>
 						<?php }
 if (isset($_REQUEST['page']) && $_REQUEST['page'] == $_COOKIE['maxPagDibujos']) {
-/*nada*/
+	/*nada*/
 } else {?>
 
-						<a href="?c=Dibujo&m=grid&page=<?=intval($_REQUEST['page']) + 1;?>" class="next text-right">Next <i class="icon-arrow-right4"></i></a>
+						<a href="<?=intval($_REQUEST['page']) + 1;?>" class="next text-right">Next <i class="icon-arrow-right4"></i></a>
 <?php }?>
 					</p>
 				</div>

@@ -9,5 +9,5 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 
 RewriteCond %{SCRIPT_FILENAME} !-f
 
-RewriteRule ^(.*)/(.*) index-php?c=$1&m=$2
+RewriteRule ^(.*)/(.*)/(.*) index.php?c=$1&m=$2&page=$3
 </IfModule>

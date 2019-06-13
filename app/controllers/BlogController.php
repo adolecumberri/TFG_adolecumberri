@@ -23,8 +23,9 @@ class BlogController extends Controller {
 		return $retorno;
 	}
 	public function show() {
+		$id = $_REQUEST['page']; // el 3º valor se llama page. pero en realidad es la ID.
 		$objBlog = new BlogModel();
-		$retorno = $objBlog->getOne($_REQUEST['id']);
+		$retorno = $objBlog->getOne($id);
 		$this->setView('blog.tpl.php');
 		return $retorno;
 	}
@@ -46,6 +47,13 @@ class BlogController extends Controller {
 			   		</div>
 			   	</li>
 			   	';
+		return $retorno;
+	}
+
+	public function getAll() {
+		$modelCat = new DibujoModel();
+		$query = " SELECT `id`, `titulo` FROM `blogs`;";
+		$retorno = $modelCat->rawQuery($query);
 		return $retorno;
 	}
 

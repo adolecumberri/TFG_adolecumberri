@@ -10,7 +10,6 @@
 }
 
 .text-shadow h2{
-
 }
 .cabeceraBlog {
     border-bottom: 3px solid #bbb;
@@ -506,9 +505,9 @@ header {
       position: absolute;
       top: -80px;
       right: 3em;
-      color: #fff;
+      color: #eAeAeA;
       padding: 2em 1.5em;
-      background: #eAeAeA;
+      background: #151515;
       -webkit-transition: 0.3s;
       -o-transition: 0.3s;
       transition: 0.3s; }

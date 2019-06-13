@@ -1,6 +1,6 @@
  <?php
 
-class Categoria extends Modelo {
+class CategoriaModel extends Modelo {
 
 	public $table;
 	public function __construct() {
