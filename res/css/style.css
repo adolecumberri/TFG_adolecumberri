@@ -5,7 +5,13 @@
   font-weight: normal;
   font-style: normal; }
 
+.text-shadow h1, .text-shadow h2{
+  
+}
 
+.text-shadow h2{
+
+}
 .cabeceraBlog {
     border-bottom: 3px solid #bbb;
     margin-bottom: 3em;
@@ -16,7 +22,7 @@ p.bodyBlog {
     margin-bottom: 2em;
 }
 
-.pBlog, span {
+.pBlog span {
   /* margin-bottom: 1.5em; */
   font-weight: 400;
   font-family: "Inconsolata", monospace;

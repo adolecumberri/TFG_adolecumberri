@@ -14,27 +14,27 @@
 							<?php
 foreach ($result as $item): if (is_null($item->img)) {?> <!-- true == texto -->
 
-																		<div class="col-md-5 zoom">
-																            <a href="?c=Blog&m=show&id=<?=$item->id?>" class="f-blog animate-box fadeInUp animated">
-																                <p class="meta"><span><?=$item->categoria?> </span> | <span><?=$item->date?></span></p>
-																                <h3 class="tituloBlog"><?=$item->titulo?></h3>
-																                <span class="read-more the-arrow -right">Read more <i class="icon-arrow-right3 arrow1"></i></span>
-																            </a>
-																        </div>
-																	<?php } else {?>
-																		<div class="col-md-6 animate-box text-center fadeInUp animated">
-																			<a href="?c=Dibujo&m=show&id=<?=$item->id?>" class="work-img" style="background-image: url(res/images/<?=$item->img?>);">
-																				<div class="overlay"></div>
-																				<div class="desc">
-																					<span class="icon"><i class="icon-heart-outline"></i></span>
-																					<p class="tag"><span><?=$item->titulo?></span>, <span>Logo</span></p>
-																					<h3><?=$item->titulo?></h3>
-																					<span class="read-more">Read more <i class="icon-arrow-right3"></i></span>
-																				</div>
-																			</a>
-																		</div>
+		<div class="col-md-5 zoom">
+            <a href="?c=Blog&m=show&id=<?=$item->id?>" class="f-blog animate-box fadeInUp animated">
+                <p class="meta"><span><?=$item->categoria?> </span> | <span><?=$item->date?></span></p>
+                <h3 class="tituloBlog"><?=$item->titulo?></h3>
+                <span class="read-more the-arrow -right">Read more <i class="icon-arrow-right3 arrow1"></i></span>
+            </a>
+        </div>
+	<?php } else {?>
+		<div class="col-md-6 animate-box text-center fadeInUp animated">
+			<a href="?c=Dibujo&m=show&id=<?=$item->id?>" class="work-img" style="background-image: url(res/images/<?=$item->img?>);">
+				<div class="overlay"></div>
+				<div class="desc">
+					<span class="icon"><i class="icon-heart-outline"></i></span>
+					<p class="tag"><span><?=$item->titulo?></span>, <span>Logo</span></p>
+					<h3><?=$item->titulo?></h3>
+					<span class="read-more">Read more <i class="icon-arrow-right3"></i></span>
+				</div>
+			</a>
+		</div>
 
-																	<?php }
+	<?php }
 endforeach;?>
 </div>
 <!-- Paginación.-->

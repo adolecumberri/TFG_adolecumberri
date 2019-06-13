@@ -5,7 +5,7 @@ class BlogController extends Controller {
 	public function __construct() {
 		$objBlog = new BlogModel();
 		$numCol = $objBlog->getColNum();
-		$numPag = intval((($numCol + 5) / 6) - 1); //pageCount = (records + recordsPerPage - 1) / recordsPerPage;
+		$numPag = intval((($numCol + 2) / 3) - 1); //pageCount = (records + recordsPerPage - 1) / recordsPerPage;
 		setcookie('maxPagBlog', $numPag);
 	}
 

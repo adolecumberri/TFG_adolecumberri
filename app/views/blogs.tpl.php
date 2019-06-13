@@ -14,7 +14,7 @@
             <?php foreach ($result as $blog): ?>
                 <?php if ($blog->deleted == '0'): ?>
 
-                    <div class="col-md-5 zoom">
+                    <div class="col-md-4 zoom">
                         <a href="?c=Blog&m=show&id=<?=$blog->id?>" class="f-blog animate-box fadeInUp animated">
                             <p class="meta"><span><?=$blog->categoria?> </span> | <span><?=$blog->date?></span></p>
                             <h3 class="tituloBlog"><?=$blog->titulo?></h3>
