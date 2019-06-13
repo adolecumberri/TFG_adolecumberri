@@ -30,7 +30,6 @@
 			<link rel="stylesheet" href="<?=base_url?>res/css/owl.theme.default.min.css">
 
 			<link rel="stylesheet" href="<?=base_url?>res/css/style.css">
-			<link rel="stylesheet" href="<?=base_url?>res/css/custom.css">
 			<script src="res/js/modernizr-2.6.2.min.js"></script>
 
 
@@ -59,7 +58,14 @@
 						<div class="colorlib-navbar-brand">
 							<a class="colorlib-logo" href="index.html">Adolfo Lecumberri</a>
 						</div>
-						<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+						<?php
+
+if (!isset($_REQUEST['c']) || $_REQUEST['c'] != 'admin') {
+	echo '<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>';
+}
+
+?>
+
 					</div>
 				</div>
 			</div>

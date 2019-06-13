@@ -50,4 +50,11 @@ class BlogController extends Controller {
 		return $retorno;
 	}
 
+	public function getAll() {
+		$modelCat = new DibujoModel();
+		$query = " SELECT `id`, `titulo` FROM `blogs`;";
+		$retorno = $modelCat->rawQuery($query);
+		return $retorno;
+	}
+
 }

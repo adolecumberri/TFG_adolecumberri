@@ -11,9 +11,18 @@ require_once 'app/config/parameters.php';
 
 if (isset($_REQUEST['c'])) {
 	if ($_REQUEST['c'] == 'admin') {
-		require_once "app/controllers/UsuarioController.php";
+		require_once "app/controllers/AdminController.php";
+		$objController = new AdminController();
 		require_once 'app/layout/header.php';
-		require_once "app/views/login.tpl.php";
+		$getMethod = $_REQUEST['m'];
+		$result = $objController->$getMethod();
+
+		if (isset($_COOKIE['exist'])) {
+			require_once "app/views/$getMethod.tpl.php";
+		} else {
+			require_once "app/views/login.tpl.php";
+
+		}
 		require_once 'app/layout/footer.php';
 
 		exit();

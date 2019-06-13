@@ -7,7 +7,7 @@ class Modelo {
 		$this->database = Database::conect();
 	}
 
-	public function rawQuery($query, $table) {
+	public function rawQuery($query) {
 
 		$resultado = $this->database->query($query);
 		$retorno = array();
@@ -17,6 +17,12 @@ class Modelo {
 			$i++;
 		}
 		return $retorno ? $retorno : false;
+	}
+
+	public function insertQuery($query) {
+
+		$resultado = $this->database->query($query);
+		return $resultado;
 	}
 
 	public function parseTime($values) {

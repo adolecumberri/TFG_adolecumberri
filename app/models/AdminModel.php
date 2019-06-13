@@ -1,7 +1,7 @@
 <?php
 
 include_once 'app/models/Modelo.php';
-class UsuarioModel extends Modelo {
+class AdminModel extends Modelo {
 	public $table;
 
 	public function __construct() {
@@ -12,15 +12,14 @@ class UsuarioModel extends Modelo {
 		$result = false;
 
 		//Comprobar si existe el usuario.
-		$query = "SELEC id, password from usuarios WHERE nick = '$nick'";
-		$login = $this->database->rawQuery($query, 'usuarios');
+		$query = "SELECT id, nombre, password, rol from usuarios WHERE nick = '$nick'";
+		$login = $this->rawQuery($query);
 
-		if ($login && $login->num_rows() == 1) {
-			$usuario = $login[0];
-			$result = $usuario;
+		if ($login && sizeof($login) == 1 && $login[0]->rol == 'admin') {
+			$result = $login[0];
 		}
 
-		return $result;
+		return $result == false ? false : $result;
 	}
 	public static function loadHeader() {
 		$retorno = '

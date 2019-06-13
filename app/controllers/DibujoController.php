@@ -56,4 +56,10 @@ class DibujoController extends Controller {
 
 		return $retorno;
 	}
+	public function getAll() {
+		$modelCat = new DibujoModel();
+		$query = " SELECT `id`, `titulo` FROM `dibujos`;";
+		$retorno = $modelCat->rawQuery($query);
+		return $retorno;
+	}
 }
