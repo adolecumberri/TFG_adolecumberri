@@ -33,7 +33,7 @@ class BlogController extends Controller {
 	public static function loadHeader() {
 		$retorno = '
 		<!-- pagina 1-->
-			   	<li style="background-image: url(res/images/img_bg_2.jpg);">
+			   	<li style="background-image: url(' . base_url . 'res/images/img_bg_2.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container">
 			   			<div class="row">

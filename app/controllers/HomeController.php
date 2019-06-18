@@ -26,7 +26,7 @@ class HomeController extends Controller {
 	public static function loadHeader() {
 		$retorno = '
 		<!-- pagina 1-->
-			   	<li style="background-image: url(res/images/img_bg_1.jpg);">
+			   	<li style="background-image: url(' . base_url . '/res/images/img_bg_1.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container">
 			   			<div class="row">
@@ -40,7 +40,7 @@ class HomeController extends Controller {
 			   		</div>
 			   	</li>
 			   	<!-- pagina 2-->
-			   	<li style="background-image: url(res/images/img_bg_2.jpg);">
+			   	<li style="background-image: url(' . base_url . 'res/images/img_bg_2.jpg);">
 			   	<div class="overlay"></div>
 			   		<div class="container">
 			   			<div class="row">
@@ -54,7 +54,7 @@ class HomeController extends Controller {
 			   		</div>
 			   	</li>
 			   	<!-- pagina 3-->
-			   	<li style="background-image: url(res/images/img_bg_3.jpg);">
+			   	<li style="background-image: url(' . base_url . 'res/images/img_bg_3.jpg);">
 				<div class="overlay"></div>
 			   		<div class="container">
 			   			<div class="row">

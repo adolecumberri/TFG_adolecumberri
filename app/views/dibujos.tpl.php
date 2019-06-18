@@ -32,7 +32,7 @@
 						<?php if (!isset($_REQUEST['page']) || $_REQUEST['page'] == '0') { /*nada*/} else {?>
 							<a href="<?=intval($_REQUEST['page']) - 1;?>" class="previous text-left"><i class="icon-arrow-left4"></i> Previous</a>
 						<?php }
-if (isset($_REQUEST['page']) && $_REQUEST['page'] == $_COOKIE['maxPagDibujos']) {
+if (isset($_REQUEST['page']) && isset($_COOKIE['maxPagDibujos']) && $_REQUEST['page'] == $_COOKIE['maxPagDibujos']) {
 	/*nada*/
 } else {?>
 

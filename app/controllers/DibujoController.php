@@ -35,7 +35,7 @@ class DibujoController extends Controller {
 	public static function loadHeader() {
 		$retorno = '
 		<!-- pagina 1-->
-			   	<li style="background-image: url(images/img_bg_1.jpg);">
+			   	<li style="background-image: url(' . base_url . '/bg3.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container">
 			   			<div class="row">

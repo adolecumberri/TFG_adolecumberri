@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 31-05-2019 a las 17:25:25
+-- Tiempo de generación: 14-06-2019 a las 10:46:54
 -- Versión del servidor: 5.7.23
 -- Versión de PHP: 7.2.10
 
@@ -31,12 +31,13 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `blogs`;
 CREATE TABLE IF NOT EXISTS `blogs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `titulo` varchar(200) NOT NULL,
   `texto` text,
+  `is_dibujo` tinyint(1) NOT NULL DEFAULT '0',
   `id_dibujo` int(11) DEFAULT NULL,
   `id_categoria` int(11) DEFAULT NULL,
-  `deleted` tinyint(4) DEFAULT NULL,
+  `deleted` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_id_dibujo` (`id_dibujo`),
   KEY `fk_id_categoria` (`id_categoria`)
@@ -52,6 +53,7 @@ DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE IF NOT EXISTS `categorias` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
+  `date` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -82,12 +84,15 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
 DROP TABLE IF EXISTS `dibujos`;
 CREATE TABLE IF NOT EXISTS `dibujos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `titulo` varchar(200) NOT NULL,
   `id_texto` varchar(200) DEFAULT NULL,
+  `is_texto` tinyint(1) NOT NULL DEFAULT '0',
   `id_categoria` int(11) DEFAULT NULL,
   `img` varchar(200) DEFAULT NULL,
-  `deleted` tinyint(4) DEFAULT NULL,
+  `id_padre` int(255) NOT NULL DEFAULT '0',
+  `has_full` varchar(200) NOT NULL DEFAULT '0',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_id_texto` (`id_texto`),
   KEY `fk_id_categoria` (`id_categoria`)

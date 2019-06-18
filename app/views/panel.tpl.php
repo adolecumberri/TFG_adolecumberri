@@ -5,7 +5,7 @@
 				<div class="col-md-3 btnAdmin  ">
 					<input type="button" value="Dibujos" onclick="window.location.href = '<?=base_url?>admin/adminDibujos/0';">
 				</div>
-				<div class="col-md-3 btnAdmin  ">
+				<div class="col-md-2 btnAdmin  ">
 					<input type="button" value="Blogs" onclick="window.location.href = '<?=base_url?>admin/adminBlogs/0';">
 				</div>
 				<div class="col-md-3 btnAdmin ">

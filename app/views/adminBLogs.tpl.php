@@ -10,7 +10,7 @@
 			</div>
 		</div>
 	<div class="container ">
-		<form action="#" method="post">
+		<form action="<?=base_url?>admin/addDibujo/0" method="post">
 			<div class="row">
 				<div class="col-md-8">
 					<label for="titulo">Titulo</label></br>
@@ -67,7 +67,7 @@
 		</div>
 		<div class="container">
 			<div class=" col-md-offset-2 loginAdmin   ">
-				<form action="#" method="post">
+				<form action="<?=base_url?>admin/deleteDibujo/0" method="post">
 					<select name="borrarBlog" class="inputSelect col-md-6">
 						<?php foreach ($result['blogs'] as $blog): ?>
 						<option value="<?=$blog->id?>"> <?=$blog->titulo?> </option>
@@ -90,7 +90,7 @@
 		</div>
 	<div class="container ">
 
-		<form action="#" method="post">
+		<form action="<?=base_url?>admin/alterDibujo/0" method="post">
 			<div class="row">
 				<div class="col-md-2">
 					<label for="id">id</label></br>
