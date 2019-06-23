@@ -124,18 +124,241 @@ class AdminController extends Controller {
 	}
 
 	public function addDibujo() {
-		var_dump($_POST);
-		var_dump($_FILES);
-		die();
+		$nombreFile = '';
+
+		//comprobación de tipos de imagen.
+		if ($_FILES['imgMain']['error'] != '4') {
+			$tipoFile = '';
+			$nombreFile = gmdate('Y-m-d', time() + 7200) . "" . $this::camelCase($_FILES['imgMain']['name']);
+			$tipoFile = $_FILES['imgMain']['type'];
+			switch ($tipoFile) {
+			case 'image/jpg':
+				$tipoFile = '.jpg';
+				break;
+			case 'image/jpeg':
+				$tipoFile = '.jpeg';
+				break;
+			case 'image/png':
+				$tipoFile = '.png';
+				break;
+			case 'image/gif':
+				$tipoFile = '.gif';
+				break;
+			default:
+				echo "<h1> querido admin, foto de formato incorrecto. :) </h1>";
+				header("Refresh: 5; URL=admin/adminDibujo/0");
+				break;
+
+			}
+		}
+
+		$nombreFull = '';
+		$tipoFull = '';
+
+		//Si existe FULL, la guardo.
+
+		if (isset($_FILES['imgHas_full'])) {
+			$nombreFull = gmdate('Y-m-d', time() + 7200) . "" . $this::camelCase($_FILES['imgHas_full']['name'] . "_FULL");
+			$tipoFull = $_FILES['imgHas_full']['type'];
+			switch ($tipoFull) {
+			case 'image/jpg':
+				$tipoFull = '.jpg';
+				break;
+			case 'image/jpeg':
+				$tipoFull = '.jpeg';
+				break;
+			case 'image/png':
+				$tipoFull = '.png';
+				break;
+			case 'image/gif':
+				$tipoFull = '.gif';
+				break;
+			default:
+				echo "<h1> querido admin, foto de formato incorrecto. :) </h1>";
+				header("Refresh: 5; URL=admin/adminDibujo/0");
+				break;
+
+			}
+
+		} else {
+			unset($nombreFull);
+			unset($tipoFull);
+		}
+
+		// no meto ni ID ni ID_PADRE
+		$values = array(
+			"date" => gmdate('Y-m-d', time() + 7200),
+			"titulo" => $_POST['titulo'] ? $_POST['titulo'] : null,
+			"id_texto" => $_POST['id_texto'] ? $_POST['id_texto'] : null,
+			"is_texto" => $_POST['is_texto'],
+			"id_categoria" => $_POST['id_categorias'] ? $_POST['id_categorias'] : null,
+			"img" => $nombreFile . $tipoFile,
+			"has_full" => $_FILES['imgHas_full']['name'] ? $nombreFull . $tipoFull : null,
+		);
+
+		//creación del objeto.
+		$objDibujo = new DibujoController(false);
+		$inserted = $objDibujo->createDraw($values);
+		if (true) {
+
+			var_dump($tipoFile);
+			$tmp_name = $_FILES['imgMain']['tmp_name'];
+			$movido1 = move_uploaded_file($tmp_name, "res/images/" . $values['img']);
+			if (isset($_FILES['imgHas_full'])) {
+				$tmp_name = $_FILES['imgHas_full']['tmp_name'];
+				$movido2 = move_uploaded_file($tmp_name, "res/images/" . $values['has_full']);
+			}
+		};
+		header("Location: " . base_url . "admin/adminDibujos/0");
 
 	}
-	public function deleteDibujo() {
-		var_dump($_POST);
-		die();
+	public function borrarDibujo() {
+
+		if (isset($_POST['borrarDibujo']) && $_POST['borrarDibujo'] != '') {
+			$objDibujo = new DibujoController();
+			$objDibujo->borrarDibujo($_POST['borrarDibujo']);
+			die();
+
+		}
 	}
 	public function alterDibujo() {
-		var_dump($_POST);
-		die();
+
+		//comprobación de tipos de imagen.
+		$nombreFile = '';
+		$tipoFile = '';
+		if ($_FILES['imgMain']['error'] != '4') {
+			$nombreFile = gmdate('Y-m-d', time() + 7200) . "" . $this::camelCase($_FILES['imgMain']['name']);
+			$tipoFile = $_FILES['imgMain']['type'];
+			switch ($tipoFile) {
+			case 'image/jpg':
+				$tipoFile = '.jpg';
+				break;
+			case 'image/jpeg':
+				$tipoFile = '.jpeg';
+				break;
+			case 'image/png':
+				$tipoFile = '.png';
+				break;
+			case 'image/gif':
+				$tipoFile = '.gif';
+				break;
+			default:
+				echo "<h1> querido admin, foto de formato incorrecto. :) </h1>";
+				header("Refresh: 5; URL=admin/adminDibujo/0");
+				break;
+
+			}
+		}
+		$nombreFull = '';
+		$tipoFull = '';
+
+		//Si existe FULL, la guardo.
+		if (isset($_FILES['imgHas_full'])) {
+
+			if ($_FILES['imgMain']['error'] != '4') {
+				$nombreFull = gmdate('Y-m-d', time() + 7200) . "" . $this::camelCase($_FILES['imgHas_full']['name'] . "_FULL");
+				$tipoFull = $_FILES['imgHas_full']['type'];
+				switch ($tipoFull) {
+				case 'image/jpg':
+					$tipoFull = '.jpg';
+					break;
+				case 'image/jpeg':
+					$tipoFull = '.jpeg';
+					break;
+				case 'image/png':
+					$tipoFull = '.png';
+					break;
+				case 'image/gif':
+					$tipoFull = '.gif';
+					break;
+				default:
+					echo "<h1> querido admin, foto de formato incorrecto. :) </h1>";
+					header("Refresh: 5; URL=admin/adminDibujo/0");
+					break;
+
+				}
+			}
+
+		} else {
+			unset($nombreFull);
+			unset($tipoFull);
+		}
+
+		// no meto ni ID ni ID_PADRE
+		$values = array(
+			"id" => $_POST['id'] ? $_POST['id'] : null,
+			"date" => 'current_date',
+			"id_texto" => $_POST['id_texto'] ? $_POST['id_texto'] : null,
+			"is_texto" => $_POST['is_texto'],
+			"id_categoria" => $_POST['id_categorias'] ? $_POST['id_categorias'] : null,
+			"img" => isset($_FILES['imgMain']) ? $nombreFile . $tipoFile : '',
+			"has_full" => isset($_FILES['imgHas_full']['name']) ? $nombreFull . $tipoFull : '',
+		);
+		if ($values['img'] == '' || is_null($values['img'])) {
+			unset($values['img']);
+		}
+		if ($values['has_full'] == '' || is_null($values['has_full'])) {
+			unset($values['has_full']);
+		}
+
+		//creación del objeto.
+		$objDibujo = new DibujoController(false);
+		$inserted = $objDibujo->updateDraw($values, $_POST['id']);
+
+		if ($inserted) {
+
+			$tmp_name = $_FILES['imgMain']['tmp_name'];
+			$movido1 = move_uploaded_file($tmp_name, "res/images/" . $values['img']);
+			if (isset($_FILES['imgHas_full'])) {
+				$tmp_name = $_FILES['imgHas_full']['tmp_name'];
+				$movido2 = move_uploaded_file($tmp_name, "res/images/" . $values['has_full']);
+			}
+		};
+		header("Location: " . base_url . "admin/adminDibujos/0");
+	}
+
+	public function addBlog() {
+		$values = array(
+			'date' => 'current_date',
+			'titulo' => $_POST['titulo'],
+			'id_categoria' => $_POST['id_categoria'],
+			'texto' => $_POST['texto'],
+			'is_dibujo' => $_POST['is_dibujo'],
+			'id_dibujo' => $_POST['id_dibujo'],
+
+		);
+
+		$objBlog = new BlogController(false);
+		$objBlog->createBlog($values);
+
+		header("Location: " . base_url . "admin/adminBlogs/0");
+	}
+
+	public function deleteDibujo() {
+
+		if (isset($_POST['borrarBlog']) && $_POST['borrarBlog'] != '') {
+			$objBlog = new BlogController(false);
+			$objBlog->borrarBlog($_POST['id_blog']);
+		}
+	}
+
+	public function loadAjax() {
+		$id = $_REQUEST['page'];
+		$objDibujo = new DibujoController();
+		$retorno = $objDibujo->getOne($id);
+		echo json_encode($retorno);exit;
+	}
+	//camelCase
+	public static function camelCase($str, array $noStrip = []) {
+		// non-alpha and non-numeric characters become spaces
+		$str = preg_replace('/[^a-z0-9' . implode("", $noStrip) . ']+/i', ' ', $str);
+		$str = trim($str);
+		// uppercase the first character of each word
+		$str = ucwords($str);
+		$str = str_replace(" ", "", $str);
+		$str = lcfirst($str);
+
+		return $str;
 	}
 
 }

@@ -1,5 +1,4 @@
 
-<!-- CONTROLADOR FRONTAL -->
  <?php
 
 //establece contenido enviando un http
@@ -7,7 +6,14 @@ header('Content-type: text/html; charset=utf-8');
 require_once 'autoload.php';
 require_once 'app/config/database.php';
 require_once 'app/config/parameters.php';
-//login
+//parse del AJAX....
+if (isset($_REQUEST['ajax'])) {
+	require_once "app/controllers/AdminController.php";
+	$objController = new AdminController();
+	$getMethod = $_REQUEST['m'];
+	$result = $objController->$getMethod();
+	exit();
+}
 
 if (isset($_REQUEST['c'])) {
 	if ($_REQUEST['c'] == 'admin') {
@@ -15,10 +21,20 @@ if (isset($_REQUEST['c'])) {
 		$objController = new AdminController();
 		require_once 'app/layout/header.php';
 		$getMethod = $_REQUEST['m'];
-		$result = $objController->$getMethod();
+		if (!method_exists($objController, $getMethod)) {
+			header("Location: " . base_url . "admin/index/0");
+
+		} else {
+			$result = $objController->$getMethod();
+		}
 
 		if (isset($_COOKIE['exist'])) {
-			require_once "app/views/$getMethod.tpl.php";
+			if (file_exists("app/views/$getMethod.tpl.php")) {
+				require_once "app/views/$getMethod.tpl.php";
+			} else {
+				require_once "app/views/panel.tpl.php";
+			}
+
 		} else {
 			require_once "app/views/login.tpl.php";
 

@@ -14,6 +14,9 @@
 			<link rel="shortcut icon" href="favicon.ico">
 
 			<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+			<!-- Aqui van los links de referencia al js-->
+			<script language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 
 			<!-- Animate.css -->
 			<link rel="stylesheet" href="<?=base_url?>/res/css/animate.css">

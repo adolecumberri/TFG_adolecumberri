@@ -2,11 +2,14 @@
 include_once 'app/models/BlogModel.php';
 class BlogController extends Controller {
 
-	public function __construct() {
-		$objBlog = new BlogModel();
-		$numCol = $objBlog->getColNum();
-		$numPag = intval((($numCol + 2) / 3) - 1); //pageCount = (records + recordsPerPage - 1) / recordsPerPage;
-		setcookie('maxPagBlog', $numPag);
+	public function __construct($crearCookie = true) {
+		if ($crearCookie) {
+			$objBlog = new BlogModel();
+			$numCol = $objBlog->getColNum();
+			$numPag = intval((($numCol + 2) / 3) - 1); //pageCount = (records + recordsPerPage - 1) / recordsPerPage;
+			setcookie('maxPagBlog', $numPag);
+		}
+
 	}
 
 	public function grid() {
@@ -55,6 +58,36 @@ class BlogController extends Controller {
 		$query = " SELECT `id`, `titulo` FROM `blogs`;";
 		$retorno = $modelCat->rawQuery($query);
 		return $retorno;
+	}
+
+	public function createBlog($values) {
+		$retorno = "insert into blogs ( ";
+		foreach ($values as $key => $value) {
+			$retorno .= "`" . $key . "`, ";
+
+		}
+		$retorno .= "`deleted` ) ";
+		$retorno .= "VALUES ( ";
+		foreach ($values as $key => $value) {
+			if ($key != 'date') {
+				$retorno .= "'" . $value . "', ";
+			} else {
+				$retorno .= "" . $value . " , ";
+			}
+
+		}
+		$retorno .= "0 )";
+
+		$blogModel = new BlogModel();
+		return $blogModel->insertQuery($retorno);
+
+	}
+
+	public function borrarBlog($id) {
+		$modelBlog = new BlogModel();
+		$query = "DELETE FROM `blogs` WHERE id = " . $id . ";";
+		$modelBlog->insertQuery($query);
+		header("Location:" . base_url . "admin/adminBlogs/0");
 	}
 
 }

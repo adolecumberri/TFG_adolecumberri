@@ -10,7 +10,7 @@
 			</div>
 		</div>
 	<div class="container ">
-		<form action="<?=base_url?>admin/addDibujo/0" method="post">
+		<form action="<?=base_url?>admin/addBlog/0" method="post">
 			<div class="row">
 				<div class="col-md-8">
 					<label for="titulo">Titulo</label></br>
@@ -18,8 +18,8 @@
 				</div>
 
 				<div class="col-md-4">
-					<label for="categorias">Categoria</label><br>
-					<select name="categorias" class="inputSelect col-md-12">
+					<label for="categoria">Categoria</label><br>
+					<select name="id_categoria" class="inputSelect col-md-12">
 						<option value="">Categorias</option>
 						<?php foreach ($result['categorias'] as $categoria): ?>
 							<option value="<?=$categoria->id?>"> <?=$categoria->nombre?> </option>
@@ -31,11 +31,11 @@
 			<div class="row">
 				<div class="col-md-6">
 					<label for="texto">Texto</label></br>
-					<textarea  cols="50"></textarea>
+					<textarea  id="texto" name="texto" cols="50"></textarea>
 				</div>
 				<div class="col-md-3">
 					<label for="is_dibujo">is dibujo</label><br>
-					<select name="categorias" class="inputSelect col-md-12">
+					<select name="is_dibujo" id="is_dibujo" class="inputSelect col-md-12">
 						<option value="0">No</option>
 						<option value="1">SI</option>
 
@@ -44,7 +44,7 @@
 				<div class="col-md-3">
 					<label for="id_dibujo">Dibujo Relacionado</label><br>
 					<select name="id_dibujo" class="inputSelect col-md-12">
-						<option value="">No</option>
+						<option value="0">No</option>
 						<?php foreach ($result['dibujos'] as $dibujos): ?>
 							<option value="<?=$dibujos->id?>"> <?=$dibujos->titulo?> </option>
 						<?php endforeach;?>
@@ -68,7 +68,7 @@
 		<div class="container">
 			<div class=" col-md-offset-2 loginAdmin   ">
 				<form action="<?=base_url?>admin/deleteDibujo/0" method="post">
-					<select name="borrarBlog" class="inputSelect col-md-6">
+					<select name="id_blog" class="inputSelect col-md-6">
 						<?php foreach ($result['blogs'] as $blog): ?>
 						<option value="<?=$blog->id?>"> <?=$blog->titulo?> </option>
 						<?php endforeach;?>
@@ -81,6 +81,7 @@
 
 		<hr>
 		<hr>
+		<!--
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center animate-box intro-heading fadeInUp animated">
@@ -102,8 +103,8 @@
 				</div>
 
 				<div class="col-md-4">
-					<label for="categorias">Categoria</label><br>
-					<select name="categorias" class="inputSelect col-md-12">
+					<label for="id_categorias">Categoria</label><br>
+					<select name="id_categorias" class="inputSelect col-md-12">
 						<option value="">Categorias</option>
 						<?php foreach ($result['categorias'] as $categoria): ?>
 							<option value="<?=$categoria->id?>"> <?=$categoria->nombre?> </option>
@@ -119,7 +120,7 @@
 				</div>
 				<div class="col-md-3">
 					<label for="is_dibujo">is dibujo</label><br>
-					<select name="categorias" class="inputSelect col-md-12">
+					<select name="is_dibujo" class="inputSelect col-md-12">
 						<option value="0">No</option>
 						<option value="1">SI</option>
 
@@ -137,7 +138,9 @@
 			</div>
 			<input type="submit" name="Crear">
 		</form>
+
 	</div>
+	-->
 
 </div>
 

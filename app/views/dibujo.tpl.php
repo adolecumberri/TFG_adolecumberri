@@ -21,7 +21,7 @@
 			</div>
 				<div class="col-md-12 animate-box" style="margin-bottom: 4em;">
 					<!-- Scroll fix content-->
-					<img id="img" class="img-responsive" src="<?=base_url?>res/images/<?=$result->has_full?>.jpg" alt="<?=$result->titulo?>">
+					<img id="img" class="img-responsive" src="<?=base_url?>res/images/<?=$result->has_full?>" alt="<?=$result->titulo?>">
 				</div>
 				<?php if (!is_null($result->texto)): ?>
 				<div class="col-md-12 animate-box text-center" >

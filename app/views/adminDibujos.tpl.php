@@ -42,6 +42,7 @@
 				<div class="col-md-4 form-group">
 					<label for="img">Imagen</label><br>
 					<input type="file" name="imgMain" class="col-md-12 insertFile">
+
 				</div>
 				<div class="col-md-4 form-group">
 					<label for="id_categorias">id Categoria</label><br>
@@ -76,9 +77,10 @@
 		</div>
 		<div class="container">
 			<div class=" col-md-offset-2 loginAdmin   ">
-				<form action="<?=base_url?>admin/deleteDibujo/0" method="post" enctype="multipart/form-data">
-					<select name="borrarBlog" class="inputSelect col-md-6">
-						<?php foreach ($result['blogs'] as $blog): ?>
+				<form action="<?=base_url?>admin/borrarDibujo/0" method="post" enctype="multipart/form-data">
+					<option value=""></option>
+					<select name="borrarDibujo" class="inputSelect col-md-6">
+						<?php foreach ($result['dibujos'] as $blog): ?>
 						<option value="<?=$blog->id?>"> <?=$blog->titulo?> </option>
 						<?php endforeach;?>
 
@@ -98,31 +100,36 @@
 			</div>
 		</div>
 	<div class="container ">
-		<form action="<?=base_url?>admin/alterDibujo/0" method="post" enctype="multipart/form-data">
+		<form action="<?=base_url?>admin/alterDibujo/0" method="post" enctype="multipart/form-data" >
 			<div class="row">
 				<div class="col-md-2 form-group">
 					<label for="id">Id</label></br>
-					<input type="text" name="id" class="col-md-12">
+					<input type="text" name="id" class="col-md-12" id="idMod">
 				</div>
 
-
-				<div class="col-md-4 form-group">
+<div class="row">
+				<div class="col-md-3 form-group">
 					<label for="titulo">Titulo</label></br>
-					<input type="text" name="titulo" class="col-md-12">
+					<select name="titulo" class="inputSelect col-md-12" id="tituloModDibujos" required>
+						<option value=""></option>
+						<?php foreach ($result['dibujos'] as $dibujo): ?>
+							<option value="<?=$dibujo->id?>"><?=$dibujo->titulo?></option>
+						<?php endforeach;?>
+					</select>
 				</div>
 
 
 				<div class="col-md-3 form-group">
-					<label for="is_text">is texto</label><br>
-					<select name="categorias" class="inputSelect col-md-12">
+					<label for="is_texto">is texto</label><br>
+					<select name="is_texto" class="inputSelect col-md-12" id="is_textoMod">
 						<option value="0">No</option>
 						<option value="1">SI</option>
 					</select>
 				</div>
 				<div class="col-md-3 form-group">
 					<label for="id_texto">blogs Relacionado</label><br>
-					<select name="id_texto" class="inputSelect col-md-12">
-						<option value="">No</option>
+					<select name="id_texto" class="inputSelect col-md-12" id="id_textMod">
+						<option value="0">No</option>
 						<?php foreach ($result['blogs'] as $textos): ?>
 							<option value="<?=$textos->id?>"> <?=$textos->titulo?> </option>
 						<?php endforeach;?>
@@ -135,24 +142,30 @@
 			<div class="row">
 				<div class="col-md-4 form-group">
 					<label for="img">Imagen</label><br>
-					<input type="text" name="img" class="col-md-12">
+					<input type="file" name="imgMain" class="col-md-12 insertFile">
 				</div>
-
 				<div class="col-md-4 form-group">
 					<label for="id_categorias">id Categoria</label><br>
-					<input type="text" name="id_categorias" class="col-md-12">
+					<select name="id_categorias" class="inputSelect col-md-12" id="id_categoriasMod">
+						<option value="0">No</option>
+						<?php foreach ($result['categorias'] as $categorias): ?>
+							<option value="<?=$categorias->id?>"> <?=$categorias->nombre?> </option>
+						<?php endforeach;?>
+					</select>
 				</div>
 				<div class="col-md-4 form-group">
 					<label for="has_full">has_full</label><br>
-					<input type="text" name="has_full" class="col-md-12">
+					<input type="file" name="imgHas_full" class="col-md-12 insertFile">
 				</div>
 
 			</div>
-			<input type="submit" name="Crear">
+			<div class="form-group">
+				<input type="submit" name="Modificar" id="btnModDibujos">
+			</div>
 		</form>
 
 	</div>
 
 </div>
-
+<script src="<?=base_url?>js/adminDibujo.js"></script>
 <link rel="stylesheet" href="<?=base_url?>res/css/custom.css">
